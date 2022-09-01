@@ -1,19 +1,15 @@
-import React, {useEffect, useState} from 'react';
-import {Button, SafeAreaView, StyleSheet, Text, View} from 'react-native';
-import {
-  fetchQuery,
-  RelayEnvironmentProvider,
-  useLazyLoadQuery,
-} from 'react-relay';
-import {fetchTenant} from './src/queries/tenant';
+import React from 'react';
+import {View, SafeAreaView, StyleSheet} from 'react-native';
+import {RelayEnvironmentProvider} from 'react-relay';
 import environment from './fetchGraphQl';
+import ListOfTenants from './src/components/ListOfTenants';
+
 const App = () => {
   return (
     <RelayEnvironmentProvider environment={environment}>
       <SafeAreaView>
-        <View style={styles.Container}>
-          <Text>Pk</Text>
-          <Button title="Press" />
+        <View style={styles.container}>
+          <ListOfTenants />
         </View>
       </SafeAreaView>
     </RelayEnvironmentProvider>
@@ -21,9 +17,9 @@ const App = () => {
 };
 
 const styles = StyleSheet.create({
-  Container: {
-    margin: 20,
-    padding: 0,
+  container: {
+    margin: 5,
+    padding: 10,
     justifyContent: 'center',
     alignItems: 'center',
   },

@@ -1,4 +1,5 @@
 import {Environment, Network, RecordSource, Store} from 'relay-runtime';
+
 async function fetchGraphQL(request, variables) {
   const response = await fetch('http://localhost:8080/v1beta1/relay', {
     method: 'POST',
@@ -12,12 +13,12 @@ async function fetchGraphQL(request, variables) {
       variables,
     }),
   });
-  const data = response.json();
-  if (data.errors) {
-    console.log(data);
-    throw data.errors;
+
+  if (response.data) {
+    throw new Error(response.data.errors);
   }
-  return data;
+  const res = await response.json();
+  return res;
 }
 const environment = new Environment({
   network: Network.create(fetchGraphQL),

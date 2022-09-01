@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<eb8cb171e03e8780fb2163293328b268>>
+ * @generated SignedSource<<c6f6ffb4cd817f4bc18d8220f89389ab>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -9,46 +9,56 @@
 'use strict';
 
 var node = (function(){
-var v0 = {
-  "alias": null,
-  "args": null,
-  "kind": "ScalarField",
-  "name": "pk",
-  "storageKey": null
-};
-return {
-  "fragment": {
-    "argumentDefinitions": [],
-    "kind": "Fragment",
-    "metadata": null,
-    "name": "tenantQuery",
+var v0 = [
+  {
+    "alias": null,
+    "args": [
+      {
+        "kind": "Literal",
+        "name": "last",
+        "value": 30
+      }
+    ],
+    "concreteType": "tenantConnection",
+    "kind": "LinkedField",
+    "name": "tenant_connection",
+    "plural": false,
     "selections": [
       {
         "alias": null,
         "args": null,
-        "concreteType": "tenantConnection",
+        "concreteType": "tenantEdge",
         "kind": "LinkedField",
-        "name": "tenant_connection",
-        "plural": false,
+        "name": "edges",
+        "plural": true,
         "selections": [
           {
             "alias": null,
             "args": null,
-            "concreteType": "tenantEdge",
+            "concreteType": "tenant",
             "kind": "LinkedField",
-            "name": "edges",
-            "plural": true,
+            "name": "node",
+            "plural": false,
             "selections": [
               {
                 "alias": null,
                 "args": null,
-                "concreteType": "tenant",
-                "kind": "LinkedField",
-                "name": "node",
-                "plural": false,
-                "selections": [
-                  (v0/*: any*/)
-                ],
+                "kind": "ScalarField",
+                "name": "pk",
+                "storageKey": null
+              },
+              {
+                "alias": null,
+                "args": null,
+                "kind": "ScalarField",
+                "name": "name",
+                "storageKey": null
+              },
+              {
+                "alias": null,
+                "args": null,
+                "kind": "ScalarField",
+                "name": "id",
                 "storageKey": null
               }
             ],
@@ -58,6 +68,16 @@ return {
         "storageKey": null
       }
     ],
+    "storageKey": "tenant_connection(last:30)"
+  }
+];
+return {
+  "fragment": {
+    "argumentDefinitions": [],
+    "kind": "Fragment",
+    "metadata": null,
+    "name": "tenantQuery",
+    "selections": (v0/*: any*/),
     "type": "query_root",
     "abstractKey": null
   },
@@ -66,61 +86,19 @@ return {
     "argumentDefinitions": [],
     "kind": "Operation",
     "name": "tenantQuery",
-    "selections": [
-      {
-        "alias": null,
-        "args": null,
-        "concreteType": "tenantConnection",
-        "kind": "LinkedField",
-        "name": "tenant_connection",
-        "plural": false,
-        "selections": [
-          {
-            "alias": null,
-            "args": null,
-            "concreteType": "tenantEdge",
-            "kind": "LinkedField",
-            "name": "edges",
-            "plural": true,
-            "selections": [
-              {
-                "alias": null,
-                "args": null,
-                "concreteType": "tenant",
-                "kind": "LinkedField",
-                "name": "node",
-                "plural": false,
-                "selections": [
-                  (v0/*: any*/),
-                  {
-                    "alias": null,
-                    "args": null,
-                    "kind": "ScalarField",
-                    "name": "id",
-                    "storageKey": null
-                  }
-                ],
-                "storageKey": null
-              }
-            ],
-            "storageKey": null
-          }
-        ],
-        "storageKey": null
-      }
-    ]
+    "selections": (v0/*: any*/)
   },
   "params": {
-    "cacheID": "183737cb624dba78fe22a1edfa13a3af",
+    "cacheID": "630ce683e51adc057ec4c703e2b654e1",
     "id": null,
     "metadata": {},
     "name": "tenantQuery",
     "operationKind": "query",
-    "text": "query tenantQuery {\n  tenant_connection {\n    edges {\n      node {\n        pk\n        id\n      }\n    }\n  }\n}\n"
+    "text": "query tenantQuery {\n  tenant_connection(last: 30) {\n    edges {\n      node {\n        pk\n        name\n        id\n      }\n    }\n  }\n}\n"
   }
 };
 })();
 
-node.hash = "62d003c62ebd6c2ddc073512cfbb298b";
+node.hash = "0c0fcc6aa2168ec37ba7d1bba45f8ad6";
 
 module.exports = node;
