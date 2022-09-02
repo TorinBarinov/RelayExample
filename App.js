@@ -2,14 +2,14 @@ import React from 'react';
 import {View, SafeAreaView, StyleSheet} from 'react-native';
 import {RelayEnvironmentProvider} from 'react-relay';
 import environment from './fetchGraphQl';
-import ListOfTenants from './src/components/ListOfTenants';
+import List from './src/components/ListOfTenants';
 
 const App = () => {
   return (
     <RelayEnvironmentProvider environment={environment}>
       <SafeAreaView>
         <View style={styles.container}>
-          <ListOfTenants />
+          <List />
         </View>
       </SafeAreaView>
     </RelayEnvironmentProvider>
